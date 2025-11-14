@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "bytebodh",
+    "slug": "bytebodh",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/images/main.png",
+    "scheme": "codewithsathya",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    
+    "android": {
+      "permissions": [
+        "NOTIFICATIONS"
+      ],
+      "googleServicesFile": "./google-services.json",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/main.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.sathichary581.codewithsathya"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/main.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#232323",
+          "image": "./assets/images/main.png",
+          "dark": {
+            "image": "./assets/images/main.png",
+            "backgroundColor": "#000000"
+          },
+          "imageWidth": 200
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "2285ccb2-3aff-43d6-ae62-09b059418832"
+      }
+    }
+  }
+}

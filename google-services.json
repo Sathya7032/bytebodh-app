@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "560065238385",
+    "project_id": "codewithsathya-af696",
+    "storage_bucket": "codewithsathya-af696.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560065238385:android:7960b0b90dc768013412d0",
+        "android_client_info": {
+          "package_name": "com.sathichary581.codewithsathya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVRIhtsUeed7sAoor-K7D8wH9WwtdZsso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
