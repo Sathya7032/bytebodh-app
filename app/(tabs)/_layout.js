@@ -1,78 +1,112 @@
-import { router, Tabs } from "expo-router";
-import React from "react";
-import { Ionicons } from "@expo/vector-icons";
-import { StatusBar, Text, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTheme } from '../../contexts/ThemeContext';
 
-export default function _layout() {
+const _layout = () => {
+  const insets = useSafeAreaInsets();
+  const { colors } = useTheme();
+
   return (
-    <SafeAreaView edges={['bottom']} style={{ flex: 1 }}>
-      <StatusBar barStyle="light-content" backgroundColor="#1E1E2E" />
+    <>
+      <StatusBar style="dark" backgroundColor={colors.primary} />
       <Tabs
-        screenOptions={() => ({
-          headerStyle: { backgroundColor: "#1E1E2E" },
-          headerTintColor: "#fff",
-          headerTitleAlign: "left",
-          headerTitle: () => (
-            <Text style={{ color: "#fff", fontSize: 20, fontWeight: "700" }}>
-              ByteBodh
-            </Text>
-          ),
-          headerRight: () => (
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <TouchableOpacity
-                onPress={() => router.push('/notifications')}
-                style={{ marginRight: 20 }}
-              >
-                <Ionicons name="notifications-outline" size={24} color="#fff" />
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => alert("Support")}
-                style={{ marginRight: 10 }}
-              >
-                <Ionicons name="chatbubbles-outline" size={24} color="#fff" />
-              </TouchableOpacity>
-            </View>
-          ),
+        screenOptions={{
+          tabBarActiveTintColor: colors.primary,
+          tabBarInactiveTintColor: colors.mediumGray,
+          tabBarBackgroundColor: colors.white,
           tabBarStyle: {
-            backgroundColor: "#1E1E2E",
-            borderTopWidth: 0,
-            height: 60,
-            paddingTop: 5, // extra space for safe area
+            backgroundColor: colors.white,
+            borderTopWidth: 1,
+            borderTopColor: '#e5e7eb',
+            borderTopLeftRadius: 25,
+            borderTopRightRadius: 25,
+            height: 60 + insets.bottom,
+            paddingBottom: insets.bottom,
+            paddingTop: 8,
+            elevation: 8,
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: -2 },
+            shadowOpacity: 0.1,
+            shadowRadius: 8,
           },
-          tabBarActiveTintColor: "#00BFFF",
-          tabBarInactiveTintColor: "#bbb",
-          tabBarLabelStyle: { fontSize: 12, fontWeight: "500" },
-        })}
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: '600',
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTintColor: colors.white,
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 18,
+          },
+        }}
       >
-        <Tabs.Screen
-          name="index"
-          options={{
-            title: "Home",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="home-outline" size={size} color={color} />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="code"
-          options={{
-            title: "Code",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="code-slash-outline" size={size} color={color} />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="account"
-          options={{
-            title: "Account",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="person-outline" size={size} color={color} />
-            ),
-          }}
-        />
-      </Tabs>
-    </SafeAreaView>
+      <Tabs.Screen
+        name="home"
+        options={{
+          title: 'Quizzes',
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? 'home' : 'home-outline'} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="leaderboards"
+        options={{
+          title: 'Leaderboard',
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? 'trophy' : 'trophy-outline'} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }}
+      />
+     
+      <Tabs.Screen
+        name="jobs"
+        options={{
+          title: 'Jobs',
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? 'briefcase' : 'briefcase-outline'} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? 'person' : 'person-outline'} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }}
+      />
+    </Tabs>
+    </>
   );
-}
+};
+
+export default _layout;

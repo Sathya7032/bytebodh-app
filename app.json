@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "bytebodh",
-    "slug": "bytebodh",
+    "slug": "codewithsathya",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/images/main.png",
@@ -11,7 +11,6 @@
     "ios": {
       "supportsTablet": true
     },
-    
     "android": {
       "permissions": [
         "NOTIFICATIONS"
@@ -42,7 +41,16 @@
           },
           "imageWidth": 200
         }
-      ]
+      ],
+      "expo-web-browser",
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-1462312256770219~7901126303",
+          "iosAppId": "ca-app-pub-1462312256770219~4309774772"
+        }
+      ],
+      "@react-native-community/datetimepicker"
     ],
     "experiments": {
       "typedRoutes": true
